@@ -12,13 +12,14 @@ fluidPage(
                          conditionalPanel(condition = "input.project_show_all_hubs == false",
                                           uiOutput("project_hub")
                          ),
-                        conditionalPanel(condition = "input.project_action != 'Edit' || input.project_action != 'Delete'",
+                        #conditionalPanel(condition = "input.project_action != 'Edit' || input.project_action != 'Delete'",
+                        conditionalPanel(condition = "input.project_action == 'Show'",
                          checkboxInput("project_show_all_hubs", label = "Show all?", value = F)
                         )
                      )
     ),
     
-    conditionalPanel(condition = "input.project_action != 'Edit'",
+    conditionalPanel(condition = "input.project_action == 'Show'",
                      box(title = "Phase: ", collapsible = T, collapsed = F, width = 3, status = "primary",
                          conditionalPanel(condition = "input.project_show_all_phases == false",
                                           selectInput("project_phase", label = NULL, choices = project_phases)

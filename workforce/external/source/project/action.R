@@ -1,5 +1,8 @@
 project_change_phase <- reactive({input$project_change_phase})
 
+project_flexible_resource <- reactive({input$project_flexible_resource})
+project_change_flexible_resource <- reactive({input$project_change_flexible_resource})
+
 project_partnerships_lead <- reactive({input$project_partnerships_lead})
 project_business_architect <- reactive({input$project_business_architect})
 project_technical_architect <- reactive({input$project_technical_architect})

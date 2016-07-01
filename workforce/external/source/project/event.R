@@ -1,3 +1,16 @@
+observeEvent(input$project_flexible_resource, {
+  #           if(project_flexible_resource()){
+  #             all_choices <- unlist(list(ps_choices, ba_choices, ta_choices, pl_choices, ie_choices, se_choices))
+  #             ps_choices <- all_choices
+  #             ba_choices <- all_choices
+  #             ta_choices <- all_choices
+  #             pl_choices <- all_choices
+  #             ie_choices <- all_choices
+  #             se_choices <- all_choices
+  #           },
+  
+})
+
 observeEvent(input$project_new_go, {
   client <- project_new_name()
   phase <- project_new_phase()
