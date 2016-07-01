@@ -1,3 +1,22 @@
+db_project_get_role_choices <- function(host = db_host, port = db_port, keyspace = db_keyspace, role = NULL){
+  if(!is.null(role)){
+  return(
+    append("None", sort(with(db_get_resources(host, port, keyspace, role)[, c("first_name", "last_name")], 
+                           paste(last_name, first_name, sep = ", "))))
+    )
+  } else {
+    roles <- c()
+    for(r in global_roles){
+      roles <- append(
+        roles,
+        append("None", sort(with(db_get_resources(host, port, keyspace, role)[, c("first_name", "last_name")], 
+                                 paste(last_name, first_name, sep = ", "))))
+      )  
+    }
+    return(unique(roles))
+  }
+}
+
 db_project_get_resources <- function(host, port = 9160, keyspace){
   drv <- JDBC(db_drv, jars)
   conn <- dbConnect(drv, paste0("jdbc:cassandra://localhost:9160/", keyspace))

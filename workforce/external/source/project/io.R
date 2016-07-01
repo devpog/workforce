@@ -207,18 +207,21 @@ output$project_edit_resources <- renderUI({
   
   if(project_action() == 'Edit'){
     if(project_edit_go_label() == 'Add'){
-      ps_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Partnerships Lead')[, c("first_name", "last_name")], 
-                                             paste(last_name, first_name, sep = ", "))))
-      ba_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Business Architect')[, c("first_name", "last_name")], 
-                                             paste(last_name, first_name, sep = ", "))))
-      ta_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Technical Architect')[, c("first_name", "last_name")], 
-                                             paste(last_name, first_name, sep = ", "))))
-      pl_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Project Lead')[, c("first_name", "last_name")], 
-                                             paste(last_name, first_name, sep = ", "))))
-      ie_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Implementation Engineer')[, c("first_name", "last_name")], 
-                                             paste(last_name, first_name, sep = ", "))))
-      se_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Support Engineer')[, c("first_name", "last_name")], 
-                                             paste(last_name, first_name, sep = ", "))))
+#       ps_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Partnerships Lead')[, c("first_name", "last_name")], 
+#                                              paste(last_name, first_name, sep = ", "))))
+#       ba_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Business Architect')[, c("first_name", "last_name")], 
+#                                              paste(last_name, first_name, sep = ", "))))
+#       ta_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Technical Architect')[, c("first_name", "last_name")], 
+#                                              paste(last_name, first_name, sep = ", "))))
+#       pl_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Project Lead')[, c("first_name", "last_name")], 
+#                                              paste(last_name, first_name, sep = ", "))))
+#       ie_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Implementation Engineer')[, c("first_name", "last_name")], 
+#                                              paste(last_name, first_name, sep = ", "))))
+#       se_choices <- append("None", sort(with(db_get_resources(db_host, db_port, db_keyspace, role = 'Support Engineer')[, c("first_name", "last_name")], 
+#                                              paste(last_name, first_name, sep = ", "))))
+      apply(as.data.frame(global_roles), 2, function(role){
+        
+      })
       
       box(title = paste0(label, " resources: "), collapsible = T, collapsed = F, width = 5, status = "primary",
           selectInput("project_partnerships_lead_resource", label = "Partnerships Lead: ", choices = ps_choices, multiple = T),

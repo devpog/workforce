@@ -1,7 +1,7 @@
 fluidPage(
   tags$head(tags$script(src = "message-handler.js")),
   fluidRow(
-    box(title = "Actions: ", collapsible = T, collapsed = F, width = 3, status = "primary",
+    box(title = "Action: ", collapsible = T, collapsed = F, width = 3, status = "primary",
         selectInput("project_action", label = NULL, choices = c("Show", "Edit", "Delete"))
     )
   ),
